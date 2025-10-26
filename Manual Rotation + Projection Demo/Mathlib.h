@@ -103,7 +103,7 @@ struct mat4 {
 	}
 
 static mat4 rotate(float angle_rad, const vec3& axis) {
-        vec3 norm_axis = axis.normalized();
+        vec3 norm_axis = axis.normalize();
         float c = std::cos(angle_rad);
         float s = std::sin(angle_rad);
         float t = 1.0f - c;
