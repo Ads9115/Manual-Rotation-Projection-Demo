@@ -102,5 +102,31 @@ struct mat4 {
 		}
 	}
 
+static mat4 rotate(float angle_rad, const vec3& axis) {
+        vec3 norm_axis = axis.normalized();
+        float c = std::cos(angle_rad);
+        float s = std::sin(angle_rad);
+        float t = 1.0f - c;
+        float x = norm_axis.x;
+        float y = norm_axis.y;
+        float z = norm_axis.z;
+
+        mat4 rot = identity();
+        // Col 0
+        rot.m[0] = t * x * x + c;
+        rot.m[1] = t * x * y + s * z;
+        rot.m[2] = t * x * z - s * y;
+        // Col 1
+        rot.m[4] = t * x * y - s * z;
+        rot.m[5] = t * y * y + c;
+        rot.m[6] = t * y * z + s * x;
+        // Col 2
+        rot.m[8] = t * x * z + s * y;
+        rot.m[9] = t * y * z - s * x;
+        rot.m[10] = t * z * z + c;
+        
+        return rot;
+    }
+
 
 };
