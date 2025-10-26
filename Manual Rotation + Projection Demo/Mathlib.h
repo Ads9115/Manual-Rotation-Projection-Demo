@@ -66,3 +66,41 @@ struct vec3 {
 			v1.x * v2.y - v1.y * v2.x);
 	}
 };
+
+
+struct mat4 {
+
+	float m[16];
+	
+	mat4() {
+		
+		for (int i = 0; i < 16; i++) m[i] = 0.0f;
+
+		
+		m[0] = 1.0f;
+		m[5] = 1.0f;
+		m[10] = 1.0f;
+		m[15] = 1.0f;
+	}
+
+	const float* ptr() const { return m; }  //for pointer refrence to gluniformmatrix4fv
+
+	static mat4 identity() {
+		
+		return mat4();
+	}
+
+	void print() const {
+		std::cout << "mat4:" << std::endl;
+		for (int i = 0; i < 16; ++i) {
+			std::cout << m[i] << "\t";  
+
+			
+			if ((i + 1) % 4 == 0) {
+				std::cout << std::endl; 
+			}
+		}
+	}
+
+
+};
