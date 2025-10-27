@@ -102,7 +102,26 @@ struct mat4 {
 		}
 	}
 
-static mat4 rotate(float angle_rad, const vec3& axis) {
+	mat4 operator*(const mat4& rhs)const{
+
+		mat4 result;
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 4; j++) {
+				float sum = 0.0f;
+				for (int k = 1; k < 4;k++) {
+
+					sum += m[k * 4 + j] * rhs.m[i * 4 + k];
+				}
+				result.m[i * 4 + j] = sum; //stores at result.m[0][0] then increment in accordance
+			}
+		}
+
+		return result;
+	
+	
+	}
+
+	static mat4 rotate(float angle_rad, const vec3& axis) {
         vec3 norm_axis = axis.normalize();
         float c = std::cos(angle_rad);
         float s = std::sin(angle_rad);
