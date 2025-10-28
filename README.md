@@ -1,61 +1,58 @@
 # 🌀 Manual Rotation + Projection Demo
 
-A simple yet educational OpenGL-based demo focused on **understanding 3D rotation and projection** by implementing the math manually — without relying on external math libraries like GLM.
+A complete OpenGL-based demo focused on **understanding 3D rotation and projection** by implementing all core math manually — without using external libraries like GLM.
 
-This project is built to strengthen low-level graphics programming fundamentals through hands-on matrix and vector math.
+This project was built to strengthen low-level graphics programming fundamentals through hands-on matrix and vector operations.
+<img width="1592" height="887" alt="Image" src="https://github.com/user-attachments/assets/7e42b1bd-973d-4c33-a884-6bcdf12b1af1" />
+---
+
+## ✅ Project Status
+
+This project is **now complete** 🎉  
+
+It demonstrates:
+- Manual rotation and projection transformations  
+- Custom vector and matrix math for 3D transformations  
+- Rendering a rotating 3D object using **OpenGL (GLAD + GLFW)**  
+
+All core goals of this demo have been achieved.
 
 ---
 
-## 🚧 Current Progress
+## 🧮 Math Library (Now in Separate Repository)
 
-### 🧮 `Mathlib`
-A lightweight custom math library under development for:
-- Vector operations (addition, subtraction, dot, cross, normalization)
-- Basic matrix operations (under construction)
-- Manual transformations (rotation, scaling, translation — upcoming)
+The custom math library (`Mathlib`) developed for this project is now being **maintained separately** as its own standalone OpenGL mathematics library.  
+It focuses on building a complete math framework for graphics programming — including vectors, matrices, transformations, and more.
 
-> The goal is to fully implement vector and matrix operations **from scratch**, as a learning exercise.
-
-### 🧠 `main.cpp`
-This will soon include:
-- Manual implementation of rotation and projection transformations
-- Visualization using OpenGL (GLAD + GLFW)
-- Step-by-step rendering of a rotating 3D object
-
----
-
-## 📁 Project Structure
+> 🔗 You can find ongoing Mathlib updates in its dedicated repository.
 
 ---
 
 ## 🧩 Tech Stack
 - **C++17**
 - **OpenGL (GLAD + GLFW)**
-- **Custom Math Library** (no external math libs)
+- **Custom Math Library (separate repo)**
 - **Visual Studio IDE**
 
 ---
 
-## 🪄 Goals of This Project
-- Build a complete understanding of how rotation and projection work at the mathematical level.
-- Strengthen C++ and OpenGL fundamentals.
-- Create a visual demo that shows step-by-step transformations in real time.
+## 🪄 Project Goals (Achieved)
+- Understand and implement 3D rotation and projection manually.  
+- Strengthen C++ and OpenGL fundamentals.  
+- Visualize transformations step-by-step in real time.  
+- Establish a strong base for future rendering and ray tracing projects.  
 
 ---
 
-## 🤝 Contributing (Hacktoberfest 2025)
-This repository welcomes contributions as part of **Hacktoberfest**!  
-Here’s how you can help:
-1. Fork this repo.
-2. Create a new branch: `feature/your-feature-name`
-3. Add your changes (e.g., extend Mathlib, add new transformations).
-4. Submit a pull request.
+## 🤝 Contributions
 
-**Ideas for contribution:**
-- Implement new vector/matrix operations.
-- Add comments or improve documentation.
-- Create simple demo objects (cube, pyramid, etc.).
-- Improve visualization or add user controls.
+This repository remains open for **Hacktoberfest 2025** contributions!  
+While the core demo is complete, you can still:
+- Improve documentation or code readability.  
+- Add camera controls or UI visualization.  
+- Extend this demo to show additional transformation types.
+
+For math-related contributions, please refer to the **Mathlib repository**.
 
 ---
 
@@ -64,13 +61,4 @@ This project is licensed under the [MIT License](./LICENSE.txt).
 
 ---
 
-## 🌟 Acknowledgements
-- Built as part of a foundational series leading up to a custom **ray tracer**.
-- Inspired by low-level graphics programming and educational OpenGL experiments.
-
----
-
-> “Understanding transformations manually builds the foundation for mastering all 3D graphics.”
-
----
 
