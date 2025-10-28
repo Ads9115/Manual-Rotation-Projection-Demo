@@ -67,6 +67,12 @@ struct vec3 {
 	}
 };
 
+const float PI = 3.14159265359f;
+
+
+inline float radians(float degrees) {
+	return degrees * (PI / 180.0f);
+}
 
 struct mat4 {
 
@@ -178,6 +184,33 @@ struct mat4 {
 
 		return result;
 		
+	}
+
+	static mat4 perspective(float fov_rad, float aspect_ratio, float zNear, float zFar) {
+		mat4 result;
+		for (int i = 0; i < 16; i++) result.m[i];
+
+		float tanHalfFov = std::tan(fov_rad / 2.0f);
+		float f = 1.0f / tanHalfFov;
+		float zRange = zNear - zFar;
+
+		//col 0
+		result.m[0] = f/aspect_ratio;
+
+		//col 1
+
+		result.m[5] = f;
+
+		//col 2
+
+		result.m[10] = (zFar + zNear) / zRange;
+		result.m[11] = -1.0f;
+
+		//col 3
+
+		result.m[13] = (2.0f * zFar * zNear) / zRange;
+
+		return result;
 	}
 
 	
