@@ -174,7 +174,9 @@ struct mat4 {
 
 		result.m[12] = -vec3::dot(s, eye);						
 		result.m[13] = -vec3::dot(u, eye);						
-		result.m[14] = -vec3::dot(f, eye);						
+		result.m[14] = -vec3::dot(f, eye);
+
+		return result;
 		
 	}
 
