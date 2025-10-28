@@ -108,7 +108,7 @@ struct mat4 {
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
 				float sum = 0.0f;
-				for (int k = 1; k < 4;k++) {
+				for (int k = 0; k < 4;k++) {
 
 					sum += m[k * 4 + j] * rhs.m[i * 4 + k];
 				}
@@ -147,5 +147,36 @@ struct mat4 {
         return rot;
     }
 
+	static mat4 lookAt(const vec3& eye, const vec3& centre, const vec3& up)  {
 
+		vec3 f = (eye - centre).normalize(); //moving in Z axis
+		vec3 s = vec3::cross(up, f).normalize(); // moving in sides X axis
+		vec3 u = vec3::cross(f, s); // moving up and down Z axis
+
+
+		mat4 result = identity();
+		//tanspose is convertin rows into column
+		//only applicable on top 3 rows leaving bottom rows
+		//this is transpose of R^-1 from lookAt matrix formula View = R^-1 * T^-1
+		result.m[0] = s.x;
+		result.m[1] = u.x;
+		result.m[2] = f.x;
+
+		result.m[4] = s.y;
+		result.m[5] = u.y;
+		result.m[6] = f.y;
+
+		result.m[8] = s.z;
+		result.m[9] = u.z;
+		result.m[10] = f.z;
+
+		//last column for translation
+
+		result.m[12] = -vec3::dot(s, eye);						
+		result.m[13] = -vec3::dot(u, eye);						
+		result.m[14] = -vec3::dot(f, eye);						
+		
+	}
+
+	
 };

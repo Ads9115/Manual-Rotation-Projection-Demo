@@ -8,18 +8,22 @@
 int main() {
 
 	
-	/*vec3 a = { 3, 4, 8 };
-	vec3 b = {3 ,4 , 3};
-	vec3 c = vec3::cross(a, b);
-	std::cout << c << std::endl;*/
-	
-	mat4 mat = mat4::identity();
-	mat.print();
-	
+    // 1. Create a 90-degree rotation around the Z-axis
+    mat4 rot = mat4::rotate(1.5708f, vec3(0.0f, 0.0f, 1.0f));
 
+    // 2. Create a translation (move 5 units down the X-axis)
+    mat4 trans = mat4::identity();
+    trans.m[12] = 5.0f;
 
+    // 3. Perform both multiplications
+    mat4 result_RotThenTrans = trans * rot;
+    mat4 result_TransThenRot = rot * trans;
 
-	
-	
-	return 0;
+    // 4. Print and compare
+    std::cout << "--- Rotate first, then Translate ---" << std::endl;
+    result_RotThenTrans.print();
+
+    std::cout << "\n--- Translate first, then Rotate ---" << std::endl;
+    result_TransThenRot.print();
+    return 0;
 }
